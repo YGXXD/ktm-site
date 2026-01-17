@@ -1,0 +1,47 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.app {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.content{
+    flex: 1;
+    min-width: 100px;
+    overflow: auto;
+    box-sizing: border-box;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.sidebar {
+    flex: 0 0 20%;
+    min-width: 0px;
+    max-width: 20%;
+    box-sizing: border-box;
+    position: sticky;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    flex-shrink: 0;
+    padding: 1rem;
+    border-bottom: 2px solid rgba(21, 79, 173, 0.1);
+}
+
+.sidebar-content {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding-left: 10%;
+}
