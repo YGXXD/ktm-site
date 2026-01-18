@@ -1,6 +1,7 @@
 use ktm_docs::components::mark_down::MarkDown;
 use ktm_docs::components::menu_list::*;
 use ktm_docs::components::search_box::SearchBox;
+use ktm_docs::components::top_guide::*;
 use wasm_bindgen::{JsCast, closure::Closure};
 use web_sys::{MediaQueryListEvent, window};
 use yew::prelude::*;
@@ -53,25 +54,48 @@ fn App() -> Html {
             ],
         });
     }
+
     html! {
         <div class="app">
-            <aside class="sidebar">
-                <div class="sidebar-header">
-                    <SearchBox
-                        placeholder={"search documentation...".to_owned()}
-                        onchange={Callback::from(|value: String| {
-                        })}
+            <div class="guide-area"> 
+                <div class="guide-content">
+                    <TopGuide
+                        logo={
+                            TopGuidLogoProps {
+                                src: Some("logo.png".to_string()),
+                                height: 50
+                            }
+                        } 
+                        items={
+                            vec![
+                                TopGuideItemProps {
+                                    label: "Github".to_owned(),
+                                    link: "https://github.com/YGXXD/ktm".to_owned(),
+                                }
+                            ]
+                        }
                     />
                 </div>
-                <div class="sidebar-content">
-                    <MenuList
-                    sections ={sections}
-                    />
-                </div>
-            </aside>
-            <main class="content">
-                <MarkDown content={MD.to_string()}/>
-            </main>
+            </div>
+            <div class="docs-area">
+                <aside class="docs-sidebar">
+                    <div class="docs-sidebar-header">
+                        <SearchBox
+                            placeholder={"search documentation...".to_owned()}
+                            onchange={Callback::from(|value: String| {
+                            })}
+                        />
+                    </div>
+                    <div class="docs-sidebar-content">
+                        <MenuList
+                            sections ={sections}
+                        />
+                    </div>
+                </aside>   
+                <main class="docs-main">
+                    <MarkDown content={MD.to_string()}/>
+                </main>
+            </div>
         </div>
     }
 }

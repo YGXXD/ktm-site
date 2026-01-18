@@ -22,26 +22,21 @@ pub struct MenuListProps {
 pub fn menu_list(props: &MenuListProps) -> Html {
     let menu_list_style_sheet = style!(
         r#"
-            h4 {
-                font-weight: 600;
+            p {
                 margin: 0.5rem 0;
             }
-            ul {
-                list-style: none;
-                padding: 0;
+            h3 {
+                font-weight: 700;
                 margin: 0;
             }
             li {
-                padding: 0.1rem 0;
+                list-style: none;
+                margin-right: 1rem;
             }
             a {
-                text-decoration: none;
                 display: block;
-                padding: 0.15rem 0.8rem;
                 border-radius: 6px;
-            }
-            a:hover {
-                background: rgba(3, 37, 105, 0.08);
+                margin: 0.05rem 0.8rem;
             }
         "#
     )
@@ -52,8 +47,8 @@ pub fn menu_list(props: &MenuListProps) -> Html {
                 for props.sections.iter().map(move |section| {
                     html! {
                         <p>
-                            <h4>{ section.title.clone() }</h4>
-                            <ul>
+                            <h3>{ section.title.clone() }</h3>
+                            <div>
                                 {
                                     for section.items.iter().map(move |item| {
                                         html! {
@@ -63,7 +58,7 @@ pub fn menu_list(props: &MenuListProps) -> Html {
                                         }
                                     })
                                 }
-                            </ul>
+                            </div>
                         </p>
                     }
                 })
