@@ -1,19 +1,19 @@
 use stylist::{style, yew::styled_component};
 use yew::prelude::*;
 
-#[derive(Properties, PartialEq)]
+#[derive(Properties, PartialEq, Clone)]
 pub struct MenuListItemProps {
     pub label: String,
     pub link: String,
 }
 
-#[derive(Properties, PartialEq)]
+#[derive(Properties, PartialEq, Clone)]
 pub struct MenuListSectionProps {
     pub title: String,
     pub items: Vec<MenuListItemProps>,
 }
 
-#[derive(Properties, PartialEq)]
+#[derive(Properties, PartialEq, Clone)]
 pub struct MenuListProps {
     pub sections: Vec<MenuListSectionProps>,
 }

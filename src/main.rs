@@ -55,9 +55,40 @@ fn App() -> Html {
         });
     }
 
+    let sections_state: UseStateHandle<Vec<MenuListSectionProps>> = use_state(|| sections.clone());
+    let search_box_oninput = {
+        let sections_state = sections_state.clone();
+        Callback::from(move |value: String| {
+            if !value.is_empty() {
+                let new_sections: Vec<_> = sections
+                    .iter()
+                    .filter_map(|section| {
+                        let filtered_items: Vec<_> = section
+                            .items
+                            .iter()
+                            .filter(|item| item.label.contains(&value))
+                            .cloned()
+                            .collect();
+                        if !filtered_items.is_empty() {
+                            Some(MenuListSectionProps {
+                                title: section.title.clone(),
+                                items: filtered_items,
+                            })
+                        } else {
+                            None
+                        }
+                    })
+                    .collect();
+                sections_state.set(new_sections);
+            } else {
+                sections_state.set(sections.clone());
+            }
+        })
+    };
+
     html! {
         <div class="app">
-            <div class="guide-area"> 
+            <div class="guide-area">
                 <div class="guide-content">
                     <TopGuide
                         logo={
@@ -65,7 +96,7 @@ fn App() -> Html {
                                 src: Some("logo.png".to_string()),
                                 height: 50
                             }
-                        } 
+                        }
                         items={
                             vec![
                                 TopGuideItemProps {
@@ -82,16 +113,15 @@ fn App() -> Html {
                     <div class="docs-sidebar-header">
                         <SearchBox
                             placeholder={"search documentation...".to_owned()}
-                            onchange={Callback::from(|value: String| {
-                            })}
+                            oninput={search_box_oninput}
                         />
                     </div>
                     <div class="docs-sidebar-content">
                         <MenuList
-                            sections ={sections}
+                            sections ={(*sections_state).clone()}
                         />
                     </div>
-                </aside>   
+                </aside>
                 <main class="docs-main">
                     <MarkDown content={MD.to_string()}/>
                 </main>

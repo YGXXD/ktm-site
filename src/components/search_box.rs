@@ -7,13 +7,13 @@ use yew::prelude::*;
 #[derive(Properties, PartialEq)]
 pub struct SearchBoxProps {
     pub placeholder: String,
-    pub onchange: Callback<String>,
+    pub oninput: Callback<String>,
 }
 
 #[styled_component(SearchBox)]
 pub fn search_box(props: &SearchBoxProps) -> Html {
-    let callback = props.onchange.clone();
-    let onchange = Callback::from(move |event: Event| {
+    let callback = props.oninput.clone();
+    let oninput = Callback::from(move |event: InputEvent| {
         let target = event.target().unwrap();
         let input = target.unchecked_ref::<web_sys::HtmlInputElement>();
         console::log_2(&"search docs: ".into(), &input.value().into());
@@ -37,7 +37,7 @@ pub fn search_box(props: &SearchBoxProps) -> Html {
             <input
                 type="text"
                 placeholder={props.placeholder.clone()}
-                onchange={onchange}
+                oninput={oninput}
             />
         </div>
     }
