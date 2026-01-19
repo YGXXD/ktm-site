@@ -3,15 +3,8 @@
     --guide-background-color: #00000024;
 }
 
-:root[data-theme=dark]{
+html[data-theme=dark] {
     --guide-background-color: #ffffff12;
-}
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
 }
 
 .guide-area {
@@ -35,7 +28,6 @@ body {
     flex-direction: row;
     width: 100%;
     height: 100vh;
-    box-sizing: border-box;
 }
 
 .docs-sidebar {
@@ -45,7 +37,6 @@ body {
     min-width: 140px;
     max-width: 18%;
     height: calc(100% - var(--guide-height));
-    box-sizing: border-box;
 }
 
 .docs-sidebar-header {
@@ -68,6 +59,5 @@ body {
     padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    box-sizing: border-box;
     overflow: auto;
 }

@@ -1,11 +1,18 @@
 [package]
 name = "ktm-docs"
 version = "0.1.0"
-edition = "2024"
+authors = ["ygxxd <764863366@qq.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-wasm-bindgen = "0.2.108"
-web-sys = { version = "0.3.85", features = [ "console", "Window", "Document", "HtmlElement", "Element", "MediaQueryList", "MediaQueryListEvent" ] }
-leptos = { version = "0.8.15", features = ["csr"] }
-stylist = "0.13.0"
+dioxus = { version = "0.7.1", features = ["router", "fullstack"] }
 pulldown-cmark = "0.13.0"
+
+[features]
+default = ["web"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
+server = ["dioxus/server"]
