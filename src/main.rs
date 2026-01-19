@@ -1,5 +1,10 @@
 use ktm_docs::App;
+use leptos::prelude::*;
 
 fn main() {
-    yew::Renderer::<App>::new().render();
+    mount_to_body(|| {
+        view! {
+            <App />
+        }
+    })
 }

@@ -1,24 +1,18 @@
-use stylist::{style, yew::styled_component};
-use wasm_bindgen::JsCast;
+use leptos::prelude::*;
+use stylist::style;
 use web_sys::console;
-use yew::Callback;
-use yew::prelude::*;
 
-#[derive(Properties, PartialEq)]
-pub struct SearchBoxProps {
-    pub placeholder: String,
-    pub oninput: Callback<String>,
-}
-
-#[styled_component(SearchBox)]
-pub fn search_box(props: &SearchBoxProps) -> Html {
-    let callback = props.oninput.clone();
-    let oninput = Callback::from(move |event: InputEvent| {
-        let target = event.target().unwrap();
-        let input = target.unchecked_ref::<web_sys::HtmlInputElement>();
-        console::log_2(&"search docs: ".into(), &input.value().into());
-        callback.emit(input.value())
-    });
+#[component]
+pub fn SearchBox<F>(placeholder: String, oninput: F) -> impl IntoView
+where
+    F: Fn(String) + 'static,
+{
+    let callback = oninput;
+    let oninput = move |event| {
+        let value = event_target_value(&event);
+        console::log_2(&"search docs: ".into(), &value.clone().into());
+        callback(value);
+    };
 
     let search_box_style_sheet = style!(
         r#"
@@ -32,12 +26,12 @@ pub fn search_box(props: &SearchBoxProps) -> Html {
         "#
     )
     .unwrap();
-    html! {
+    view! {
         <div class={search_box_style_sheet.get_class_name().to_string()}>
             <input
                 type="text"
-                placeholder={props.placeholder.clone()}
-                oninput={oninput}
+                placeholder={placeholder}
+                on:input={oninput}
             />
         </div>
     }

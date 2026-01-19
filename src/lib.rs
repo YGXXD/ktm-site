@@ -4,9 +4,9 @@ use components::mark_down::MarkDown;
 use components::menu_list::*;
 use components::search_box::SearchBox;
 use components::top_guide::*;
+use leptos::prelude::*;
 use wasm_bindgen::{JsCast, closure::Closure};
 use web_sys::{MediaQueryListEvent, window};
-use yew::prelude::*;
 
 const MD: &str = include_str!("../README.md");
 
@@ -33,13 +33,24 @@ fn setup_theme_mode_and_watcher() {
 }
 
 #[component]
-pub fn App() -> Html {
+pub fn App() -> impl IntoView {
     setup_theme_mode_and_watcher();
 
-    let mut sections = vec![];
-    for _ in 0..12 {
-        sections.push(MenuListSectionProps {
-            title: "Section 1".to_owned(),
+    let top_logo = Some(TopGuidLogoProps {
+        src: Some("logo.png".to_string()),
+        height: 50,
+    });
+    let top_items = {
+        vec![TopGuideItemProps {
+            label: "Github".to_owned(),
+            link: "https://github.com/YGXXD/ktm".to_owned(),
+        }]
+    };
+
+    let mut default_sections = vec![];
+    for i in 0..12 {
+        default_sections.push(MenuListSectionProps {
+            title: "Section".to_owned() + &i.to_string(),
             items: vec![
                 MenuListItemProps {
                     label: "Home".to_owned(),
@@ -57,56 +68,42 @@ pub fn App() -> Html {
         });
     }
 
-    let sections_state: UseStateHandle<Vec<MenuListSectionProps>> = use_state(|| sections.clone());
-    let search_box_oninput = {
-        let sections_state = sections_state.clone();
-        Callback::from(move |value: String| {
-            if !value.is_empty() {
-                let new_sections: Vec<_> = sections
-                    .iter()
-                    .filter_map(|section| {
-                        let filtered_items: Vec<_> = section
-                            .items
-                            .iter()
-                            .filter(|item| item.label.contains(&value))
-                            .cloned()
-                            .collect();
-                        if !filtered_items.is_empty() {
-                            Some(MenuListSectionProps {
-                                title: section.title.clone(),
-                                items: filtered_items,
-                            })
-                        } else {
-                            None
-                        }
-                    })
-                    .collect();
-                sections_state.set(new_sections);
-            } else {
-                sections_state.set(sections.clone());
-            }
-        })
+    let (sections, set_sections) = signal(default_sections.clone());
+    let search_box_oninput = move |value: String| {
+        web_sys::console::log_1(&"search docs: ".into());
+        if !value.is_empty() {
+            let new_sections: Vec<_> = default_sections
+                .iter()
+                .filter_map(|section| {
+                    let filtered_items: Vec<_> = section
+                        .items
+                        .iter()
+                        .filter(|item| item.label.contains(&value))
+                        .cloned()
+                        .collect();
+                    if !filtered_items.is_empty() {
+                        Some(MenuListSectionProps {
+                            title: section.title.clone(),
+                            items: filtered_items,
+                        })
+                    } else {
+                        None
+                    }
+                })
+                .collect();
+            set_sections.set(new_sections);
+        } else {
+            set_sections.set(default_sections.clone());
+        }
     };
 
-    html! {
+    view! {
         <div class="app">
             <div class="guide-area">
                 <div class="guide-content">
                     <TopGuide
-                        logo={
-                            TopGuidLogoProps {
-                                src: Some("logo.png".to_string()),
-                                height: 50
-                            }
-                        }
-                        items={
-                            vec![
-                                TopGuideItemProps {
-                                    label: "Github".to_owned(),
-                                    link: "https://github.com/YGXXD/ktm".to_owned(),
-                                }
-                            ]
-                        }
+                        logo={top_logo}
+                        items={top_items}
                     />
                 </div>
             </div>
@@ -119,9 +116,13 @@ pub fn App() -> Html {
                         />
                     </div>
                     <div class="docs-sidebar-content">
-                        <MenuList
-                            sections ={(*sections_state).clone()}
-                        />
+                        {
+                            move || view! {
+                                <MenuList
+                                    sections={sections.get()}
+                                />
+                            }
+                        }
                     </div>
                 </aside>
                 <main class="docs-main">

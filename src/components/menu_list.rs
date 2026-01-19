@@ -1,25 +1,20 @@
-use stylist::{style, yew::styled_component};
-use yew::prelude::*;
+use leptos::prelude::*;
+use stylist::style;
 
-#[derive(Properties, PartialEq, Clone)]
+#[derive(PartialEq, Clone)]
 pub struct MenuListItemProps {
     pub label: String,
     pub link: String,
 }
 
-#[derive(Properties, PartialEq, Clone)]
+#[derive(PartialEq, Clone)]
 pub struct MenuListSectionProps {
     pub title: String,
     pub items: Vec<MenuListItemProps>,
 }
 
-#[derive(Properties, PartialEq, Clone)]
-pub struct MenuListProps {
-    pub sections: Vec<MenuListSectionProps>,
-}
-
-#[styled_component(MenuList)]
-pub fn menu_list(props: &MenuListProps) -> Html {
+#[component]
+pub fn MenuList(sections: Vec<MenuListSectionProps>) -> impl IntoView {
     let menu_list_style_sheet = style!(
         r#"
             p {
@@ -41,27 +36,27 @@ pub fn menu_list(props: &MenuListProps) -> Html {
         "#
     )
     .unwrap();
-    html! {
+    view! {
         <div class={menu_list_style_sheet.get_class_name().to_string()}>
             {
-                for props.sections.iter().map(move |section| {
-                    html! {
+                sections.iter().map(move |section| {
+                    view! {
                         <p>
                             <h3>{ section.title.clone() }</h3>
                             <div>
                                 {
-                                    for section.items.iter().map(move |item| {
-                                        html! {
+                                    section.items.iter().map(move |item| {
+                                        view! {
                                             <li>
-                                                <a href={item.link.clone()}>{ &item.label }</a>
+                                                <a href={item.link.clone()}>{item.label.clone()}</a>
                                             </li>
                                         }
-                                    })
+                                    }).collect_view()
                                 }
                             </div>
                         </p>
                     }
-                })
+                }).collect_view()
             }
         </div>
     }

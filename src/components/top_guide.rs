@@ -1,26 +1,20 @@
-use stylist::{style, yew::styled_component};
-use yew::prelude::*;
+use leptos::prelude::*;
+use stylist::style;
 
-#[derive(Properties, PartialEq)]
+#[derive(PartialEq, Clone)]
 pub struct TopGuidLogoProps {
     pub src: Option<String>,
     pub height: u32,
 }
 
-#[derive(Properties, PartialEq)]
+#[derive(PartialEq, Clone)]
 pub struct TopGuideItemProps {
     pub label: String,
     pub link: String,
 }
 
-#[derive(Properties, PartialEq)]
-pub struct TopGuideProps {
-    pub logo: Option<TopGuidLogoProps>,
-    pub items: Vec<TopGuideItemProps>,
-}
-
-#[styled_component(TopGuide)]
-pub fn top_guide(props: &TopGuideProps) -> Html {
+#[component]
+pub fn TopGuide(logo: Option<TopGuidLogoProps>, items: Vec<TopGuideItemProps>) -> impl IntoView {
     let top_guide_style_sheet = style!(
         r#"
             & {
@@ -44,29 +38,29 @@ pub fn top_guide(props: &TopGuideProps) -> Html {
         "#
     )
     .unwrap();
-    html! {
+
+    view! {
         <div class={top_guide_style_sheet.get_class_name().to_string()}>
             {
-                if let Some(logo_data) = &props.logo {
-                    html! {
-                        <img 
+                match logo {
+                    Some(logo_data) => Some(view! {
+                        <img
                             src={logo_data.src.clone()}
                             height={logo_data.height.to_string()}
                         />
-                    }
-                } else {
-                    html! {}
+                    }),
+                    None => None
                 }
             }
             <ul>
                 {
-                    for props.items.iter().map(move |item| {
-                        html! {
+                    items.iter().map(move |item| {
+                        view! {
                             <li>
-                                <a href={item.link.clone()}>{ &item.label }</a>
+                                <a href={item.link.clone()}>{ item.label.clone() }</a>
                             </li>
                         }
-                    })
+                    }).collect_view()
                 }
             </ul>
         </div>

@@ -2,4 +2,3 @@
 /target
 /dist
 **/*.DS_Store
-Cargo.lock
