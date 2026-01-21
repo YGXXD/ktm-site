@@ -13,7 +13,6 @@ pub fn SearchBox(placeholder: String, oninput: EventHandler<String>) -> Element 
             input {
                 style: r#"
                     width: 100%;
-                    box-sizing: border-box;
                     padding: 0.5rem 0.75rem;
                     border-width: 3px;
                     border-radius: 12px;

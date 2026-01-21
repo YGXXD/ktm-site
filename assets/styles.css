@@ -7,7 +7,15 @@ html[data-theme=dark] {
     --guide-background-color: #ffffff12;
 }
 
-.guide-area {
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-bar-area {
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
@@ -16,18 +24,25 @@ html[data-theme=dark] {
     background-color: var(--guide-background-color);
 }
 
-.guide-content {
-    flex: 1;
+.nav-bar-content {
+    display: flex;
+    width: 100%;
     align-self: center;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+.page-area {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - var(--guide-height));
 }
 
 .docs-area {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .docs-sidebar {
@@ -36,7 +51,7 @@ html[data-theme=dark] {
     flex: 0 0 18%;
     min-width: 140px;
     max-width: 18%;
-    height: calc(100% - var(--guide-height));
+    height: 100%;
 }
 
 .docs-sidebar-header {
@@ -51,10 +66,8 @@ html[data-theme=dark] {
 }
 
 .docs-main {
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    height: calc(100% - var(--guide-height));
+    height: 100%;
     min-width: 100px;
     padding-top: 1rem;
     padding-left: 1rem;

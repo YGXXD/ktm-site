@@ -1,24 +1,25 @@
 use dioxus::prelude::*;
 
 #[derive(PartialEq, Clone)]
-pub struct TopGuidLogoProps {
-    pub src: Option<String>,
+pub struct NavBarLogoProps {
+    pub src: Asset,
     pub height: u32,
 }
 
-#[derive(PartialEq, Clone)]
-pub struct TopGuideItemProps {
+#[derive(PartialEq, Clone, Props)]
+pub struct NavBarItemProps {
     pub label: String,
-    pub link: String,
+    pub to: NavigationTarget,
 }
 
 #[component]
-pub fn TopGuide(logo: Option<TopGuidLogoProps>, items: Vec<TopGuideItemProps>) -> Element {
+pub fn NavBar(logo: Option<NavBarLogoProps>, items: Vec<NavBarItemProps>) -> Element { 
     rsx! {
         div {
             style: r#"
                 display: flex;
                 flex-direction: row;
+                width: 100%;
                 align-items: center;
             "#,
             if let Some(logo) = logo {
@@ -36,15 +37,20 @@ pub fn TopGuide(logo: Option<TopGuidLogoProps>, items: Vec<TopGuideItemProps>) -
                     margin-left: auto;
                     margin-right: 1rem;
                 "#,
-                for item in items {
+                for (index, item) in items.iter().enumerate() {
                     li {
-                        a {
-                            style: r#"
-                                display: block;
+                        style: {
+                            if index != items.len() - 1 {r#"
+                                margin-top: 1.5rem;
+                                margin-right: 1rem;
+                                font-size: large;
+                            "#} else {r#"
                                 margin-top: 1.5rem;
                                 font-size: large;
-                            "#,
-                            href: item.link.clone(),
+                            "#}
+                        },
+                        Link {
+                            to: item.to.clone(),
                             "{item.label}"
                         }
                     }
