@@ -2676,7 +2676,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ktm-docs"
+name = "ktm-site"
 version = "0.1.0"
 dependencies = [
  "dioxus",

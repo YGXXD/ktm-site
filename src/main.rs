@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use ktm_docs::app::App;
+use ktm_site::app::App;
 
 // #[derive(Debug, Clone, Routable, PartialEq)]
 // #[rustfmt::skip]

@@ -1,4 +1,3 @@
-use crate::assets::*;
 use crate::components::mark_down::MarkDown;
 use crate::components::menu_list::*;
 use crate::components::search_box::SearchBox;
@@ -77,7 +76,7 @@ pub fn Docs() -> Element {
             main {
                 class: "docs-main",
                 MarkDown {
-                    content: MD.to_string()
+                    path: "docs/index.md".to_owned()
                 }
             }
         }

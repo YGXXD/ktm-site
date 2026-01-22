@@ -3,7 +3,7 @@
 [web.app]
 
 # HTML title tag content
-title = "ktm-site"
+title = ""
 
 # include `assets` in web platform
 [web.resource]
