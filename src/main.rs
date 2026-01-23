@@ -1,10 +1,12 @@
-use ktm_docs::App;
-use leptos::prelude::*;
+use dioxus::prelude::*;
+use ktm_site::app::App;
 
 fn main() {
-    mount_to_body(|| {
-        view! {
-            <App />
-        }
-    })
+    dioxus::launch(App);
+}
+
+/// Echo the user input on the server.
+#[post("/api/echo")]
+async fn echo_server(input: String) -> Result<String, ServerFnError> {
+    Ok(input)
 }
