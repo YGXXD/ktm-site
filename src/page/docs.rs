@@ -5,37 +5,82 @@ use crate::components::search_box::SearchBox;
 use crate::site::SiteRoute;
 use dioxus::prelude::*;
 
+#[derive(Clone)]
+struct DefaultSections(Signal<Vec<MenuListSectionProps>>);
+
 #[component]
-pub fn DocsContent(path: String) -> Element {
+pub fn DocsContent(section: String, item: String) -> Element {
+    let resource = use_resource(use_reactive((&(section, item),), |(params,)| async {
+        docs_content(params.0, params.1).await
+    }));
+
     rsx! {
         MarkDown {
-            path: path
+            content: match &*resource.read() {
+                Some(result) => match result {
+                    Ok(content) => Some(content.clone()),
+                    Err(_) => None,
+                },
+                None => None,
+            }
         }
     }
 }
 
 #[component]
 pub fn DocsDefault() -> Element {
+    let default_sections_signal = use_context::<DefaultSections>().0;
+    let resource = use_resource(move || async move {
+        let default_sections = default_sections_signal();
+        let section_item = if default_sections.len() > 0 {
+            let mut result = None;
+            for section in default_sections.iter() {
+                if section.items.len() > 0 {
+                    result = Some((
+                        section.title.clone(),
+                        section.items.get(0).unwrap().label.clone(),
+                    ));
+                    break;
+                }
+            }
+            result
+        } else {
+            None
+        };
+        match section_item {
+            Some((section, item)) => docs_content(section, item).await,
+            None => Err(ServerFnError::Response("No Docs Found".to_string())),
+        }
+    });
     rsx! {
         MarkDown {
-            path: None
+            content: match &*resource.read() {
+                Some(result) => match result {
+                    Ok(content) => Some(content.clone()),
+                    Err(_) => None,
+                },
+                None => None,
+            }
         }
     }
 }
 
 #[component]
 pub fn Docs() -> Element {
+    let mut default_sections_signal = use_signal(|| vec![]);
     let mut sections_singal = use_signal(|| vec![]);
-    let mut default_sections_singnal = use_signal(|| vec![]);
     use_effect(move || {
         spawn(async move {
-            let data = docs_menulist().await.unwrap();
-            let serde_result =
-                serde_json::from_str::<serde_json::Map<String, serde_json::Value>>(&data);
-            if serde_result.is_err() {
+            let data = docs_menulist().await;
+            if data.is_err() {
                 return;
             }
-            let sections = serde_result
+            let json_result =
+                serde_json::from_str::<serde_json::Map<String, serde_json::Value>>(&data.unwrap());
+            if json_result.is_err() {
+                return;
+            }
+            let sections: Vec<_> = json_result
                 .unwrap()
                 .iter()
                 .filter_map(|(key, value)| {
@@ -47,7 +92,8 @@ pub fn Docs() -> Element {
                                     Some(MenuListItemProps {
                                         label: item.to_owned(),
                                         to: NavigationTarget::Internal(SiteRoute::DocsContent {
-                                            path: item.to_owned(),
+                                            section: key.to_owned(),
+                                            item: item.to_owned(),
                                         })
                                         .into(),
                                     })
@@ -69,13 +115,14 @@ pub fn Docs() -> Element {
                     }
                 })
                 .collect();
-            default_sections_singnal.set(sections);
-            sections_singal.set(default_sections_singnal());
+            default_sections_signal.set(sections.clone());
+            sections_singal.set(sections);
         });
     });
+
     let search_box_oninput = move |value: String| {
         if !value.is_empty() {
-            let new_sections = default_sections_singnal()
+            let new_sections = default_sections_signal()
                 .iter()
                 .filter_map(|section| {
                     let filtered_items: Vec<_> = section
@@ -96,9 +143,10 @@ pub fn Docs() -> Element {
                 .collect();
             sections_singal.set(new_sections);
         } else {
-            sections_singal.set(default_sections_singnal());
+            sections_singal.set(default_sections_signal());
         }
     };
+    use_context_provider(|| DefaultSections(default_sections_signal));
 
     rsx! {
         div {

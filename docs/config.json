@@ -1,11 +1,11 @@
 {
     "section1": [
-        "add.md",
-        "sub.md"
+        "add",
+        "sub"
     ],
     "section2": [
-        "mul.md",
-        "div.md",
-        "mod.md"
+        "mul",
+        "div",
+        "mod"
     ]
 }

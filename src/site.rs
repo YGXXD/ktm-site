@@ -18,8 +18,8 @@ pub enum SiteRoute {
         #[layout(Docs)]
         #[route("/")]
         DocsDefault { },
-        #[route("/:path")]
-        DocsContent { path: String },
+        #[route("/:section?:item")]
+        DocsContent { section: String, item: String },
 }
 
 #[component]
