@@ -13,7 +13,7 @@ pub struct NavBarItemProps {
 }
 
 #[component]
-pub fn NavBar(logo: Option<NavBarLogoProps>, items: Vec<NavBarItemProps>) -> Element { 
+pub fn NavBar(logo: Option<NavBarLogoProps>, items: Vec<NavBarItemProps>) -> Element {
     rsx! {
         div {
             style: r#"

@@ -1,3 +1,4 @@
+use crate::api::*;
 use crate::components::mark_down::MarkDown;
 use crate::components::menu_list::*;
 use crate::components::search_box::SearchBox;
@@ -24,40 +25,57 @@ pub fn DocsDefault() -> Element {
 
 #[component]
 pub fn Docs() -> Element {
-    let mut default_sections = vec![];
-    for i in 0..12 {
-        default_sections.push(MenuListSectionProps {
-            title: "Section".to_owned() + &i.to_string(),
-            items: vec![
-                MenuListItemProps {
-                    label: "Home".to_owned(),
-                    to: NavigationTarget::Internal(SiteRoute::DocsContent {
-                        path: i.to_string() + "-item0",
-                    })
-                    .into(),
-                },
-                MenuListItemProps {
-                    label: "About".to_owned(),
-                    to: NavigationTarget::Internal(SiteRoute::DocsContent {
-                        path: i.to_string() + "-item1",
-                    })
-                    .into(),
-                },
-                MenuListItemProps {
-                    label: "Contact".to_owned(),
-                    to: NavigationTarget::Internal(SiteRoute::DocsContent {
-                        path: i.to_string() + "-item2",
-                    })
-                    .into(),
-                },
-            ],
+    let mut sections_singal = use_signal(|| vec![]);
+    let mut default_sections_singnal = use_signal(|| vec![]);
+    use_effect(move || {
+        spawn(async move {
+            let data = docs_menulist().await.unwrap();
+            let serde_result =
+                serde_json::from_str::<serde_json::Map<String, serde_json::Value>>(&data);
+            if serde_result.is_err() {
+                return;
+            }
+            let sections = serde_result
+                .unwrap()
+                .iter()
+                .filter_map(|(key, value)| {
+                    if let Some(value) = value.as_array() {
+                        let items: Vec<_> = value
+                            .iter()
+                            .filter_map(|item| {
+                                if let Some(item) = item.as_str() {
+                                    Some(MenuListItemProps {
+                                        label: item.to_owned(),
+                                        to: NavigationTarget::Internal(SiteRoute::DocsContent {
+                                            path: item.to_owned(),
+                                        })
+                                        .into(),
+                                    })
+                                } else {
+                                    None
+                                }
+                            })
+                            .collect();
+                        if items.is_empty() {
+                            None
+                        } else {
+                            Some(MenuListSectionProps {
+                                title: key.to_owned(),
+                                items: items,
+                            })
+                        }
+                    } else {
+                        None
+                    }
+                })
+                .collect();
+            default_sections_singnal.set(sections);
+            sections_singal.set(default_sections_singnal());
         });
-    }
-
-    let mut sections_singal = use_signal(|| default_sections.clone());
+    });
     let search_box_oninput = move |value: String| {
         if !value.is_empty() {
-            let new_sections: Vec<_> = default_sections
+            let new_sections = default_sections_singnal()
                 .iter()
                 .filter_map(|section| {
                     let filtered_items: Vec<_> = section
@@ -78,9 +96,10 @@ pub fn Docs() -> Element {
                 .collect();
             sections_singal.set(new_sections);
         } else {
-            sections_singal.set(default_sections.clone());
+            sections_singal.set(default_sections_singnal());
         }
     };
+
     rsx! {
         div {
             class: "docs-area",
