@@ -1,7 +1,26 @@
 use crate::components::mark_down::MarkDown;
 use crate::components::menu_list::*;
 use crate::components::search_box::SearchBox;
+use crate::site::SiteRoute;
 use dioxus::prelude::*;
+
+#[component]
+pub fn DocsContent(path: String) -> Element {
+    rsx! {
+        MarkDown {
+            path: path
+        }
+    }
+}
+
+#[component]
+pub fn DocsDefault() -> Element {
+    rsx! {
+        MarkDown {
+            path: None
+        }
+    }
+}
 
 #[component]
 pub fn Docs() -> Element {
@@ -12,15 +31,24 @@ pub fn Docs() -> Element {
             items: vec![
                 MenuListItemProps {
                     label: "Home".to_owned(),
-                    link: "/".to_owned(),
+                    to: NavigationTarget::Internal(SiteRoute::DocsContent {
+                        path: i.to_string() + "-item0",
+                    })
+                    .into(),
                 },
                 MenuListItemProps {
                     label: "About".to_owned(),
-                    link: "/about".to_owned(),
+                    to: NavigationTarget::Internal(SiteRoute::DocsContent {
+                        path: i.to_string() + "-item1",
+                    })
+                    .into(),
                 },
                 MenuListItemProps {
                     label: "Contact".to_owned(),
-                    link: "/contact".to_owned(),
+                    to: NavigationTarget::Internal(SiteRoute::DocsContent {
+                        path: i.to_string() + "-item2",
+                    })
+                    .into(),
                 },
             ],
         });
@@ -53,7 +81,6 @@ pub fn Docs() -> Element {
             sections_singal.set(default_sections.clone());
         }
     };
-
     rsx! {
         div {
             class: "docs-area",
@@ -75,9 +102,7 @@ pub fn Docs() -> Element {
             }
             main {
                 class: "docs-main",
-                MarkDown {
-                    path: "docs/index.md".to_owned()
-                }
+                Outlet::<SiteRoute> {}
             }
         }
     }

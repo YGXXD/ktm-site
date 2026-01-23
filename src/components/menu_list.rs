@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 #[derive(PartialEq, Clone)]
 pub struct MenuListItemProps {
     pub label: String,
-    pub link: String,
+    pub to: NavigationTarget,
 }
 
 #[derive(PartialEq, Clone)]
@@ -33,13 +33,13 @@ pub fn MenuList(sections: Vec<MenuListSectionProps>) -> Element {
                                     list-style: none;
                                     margin-right: 1rem;
                                 "#,
-                                a {
+                                Link {
                                     style: r#"
                                         display: block;
                                         border-radius: 6px;
                                         margin: 0.05rem 0.8rem;
                                     "#,
-                                    href: "{item.link}",
+                                    to: item.to,
                                     "{item.label}"
                                 }
                             }
