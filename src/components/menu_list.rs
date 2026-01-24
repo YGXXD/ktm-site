@@ -13,10 +13,17 @@ pub struct MenuListSectionProps {
 }
 
 #[component]
-pub fn MenuList(sections: Vec<MenuListSectionProps>) -> Element {
+pub fn MenuList(
+    sections: Vec<MenuListSectionProps>,
+    selected: Option<(usize, usize)>,
+) -> Element {
+    #[cfg(debug_assertions)]
+    {
+        dioxus::logger::tracing::debug!("menu list render");
+    }
     rsx! {
         div {
-            for section in sections {
+            for (si, section) in sections.iter().enumerate() {
                 div {
                     style: "margin: 0.5rem 0;",
                     h3 {
@@ -27,19 +34,31 @@ pub fn MenuList(sections: Vec<MenuListSectionProps>) -> Element {
                         "{section.title}"
                     }
                     div {
-                        for item in section.items {
+                        for (ii, item) in section.items.iter().enumerate() {
                             li {
                                 style: r#"
                                     list-style: none;
                                     margin-right: 1rem;
                                 "#,
                                 Link {
-                                    style: r#"
-                                        display: block;
-                                        border-radius: 6px;
-                                        margin: 0.05rem 0.8rem;
-                                    "#,
-                                    to: item.to,
+                                    style: if selected.is_some() && selected.unwrap() == (si, ii) {
+                                        r#"
+                                            display: block;
+                                            border-radius: 6px;
+                                            margin: 0.05rem 0.8rem;
+                                            pointer-events: none;
+                                            text-decoration: underline;
+                                        "#
+                                    } else {
+                                        r#"
+                                            display: block;
+                                            border-radius: 6px;
+                                            margin: 0.05rem 0.8rem;
+                                            pointer-events: auto;
+                                            text-decoration: none;
+                                        "#
+                                    },
+                                    to: item.to.clone(),
                                     "{item.label}"
                                 }
                             }

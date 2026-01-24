@@ -14,10 +14,10 @@ pub enum SiteRoute {
     #[layout(Site)]
     #[route("/")]
     Home {},
+    #[route("/docs")]
+    Docs {},
     #[nest("/docs")]
         #[layout(Docs)]
-        #[route("/")]
-        DocsDefault { },
         #[route("/:section?:item")]
         DocsContent { section: String, item: String },
 }
@@ -41,7 +41,7 @@ fn Site() -> Element {
                         },
                         NavBarItemProps {
                             label: "Docs".to_owned(),
-                            to: NavigationTarget::Internal(SiteRoute::DocsDefault {}).into(),
+                            to: NavigationTarget::Internal(SiteRoute::Docs {}).into(),
                         },
                         NavBarItemProps {
                             label: "Github".to_owned(),
