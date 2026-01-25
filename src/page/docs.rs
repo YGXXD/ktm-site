@@ -37,21 +37,31 @@ async fn load_default_sections() -> Vec<MenuListSectionProps> {
     let config_bytes = dioxus::asset_resolver::read_asset_bytes(&DOCS_CONFIG)
         .await
         .unwrap();
-    let json_result =
-        serde_json::from_slice::<serde_json::Map<String, serde_json::Value>>(&config_bytes);
+    let json_result = serde_json::from_slice::<Vec<serde_json::Value>>(&config_bytes);
     match json_result {
         Ok(json_result) => json_result
             .iter()
-            .filter_map(|(key, value)| {
-                if let Some(value) = value.as_array() {
-                    let items: Vec<_> = value
+            .filter_map(|section_data| {
+                if let Some(section_data) = section_data.as_object() {
+                    let title = section_data.get("title");
+                    let items = section_data.get("items");
+                    if title.is_none() || items.is_none() {
+                        return None;
+                    }
+                    let title = title.unwrap().as_str();
+                    let items = items.unwrap().as_array();
+                    if title.is_none() || items.is_none() {
+                        return None;
+                    }
+                    let items: Vec<_> = items
+                        .unwrap()
                         .iter()
                         .filter_map(|item| {
                             if let Some(item) = item.as_str() {
                                 Some(MenuListItemProps {
                                     label: item.to_owned(),
                                     to: NavigationTarget::Internal(SiteRoute::DocsContent {
-                                        section: key.to_owned(),
+                                        section: title.unwrap().to_owned(),
                                         item: item.to_owned(),
                                     })
                                     .into(),
@@ -65,7 +75,7 @@ async fn load_default_sections() -> Vec<MenuListSectionProps> {
                         None
                     } else {
                         Some(MenuListSectionProps {
-                            title: key.to_owned(),
+                            title: title.unwrap().to_owned(),
                             items: items,
                         })
                     }

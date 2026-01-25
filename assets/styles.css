@@ -7,14 +7,6 @@ html[data-theme=dark] {
     --guide-background-color: #ffffff12;
 }
 
-html,
-body {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-
 .nav-bar-area {
     display: flex;
     flex-direction: row;
