@@ -1,10 +1,18 @@
 :root {
     --guide-height: 80px;
     --guide-background-color: #00000024;
+    --nav-bar-link-color: #410243;
+    --menu-list-normal-item-color: #2d3748;
+    --menu-list-selected-item-color: #1a202c;
+    --menu-list-hover-background-color: #5d23231a;
 }
 
 html[data-theme=dark] {
     --guide-background-color: #ffffff12;
+    --nav-bar-link-color: #94c9e8;
+    --menu-list-normal-item-color: #e2e8f0;
+    --menu-list-selected-item-color: #f7fafc;
+    --menu-list-hover-background-color: #79a9f328;
 }
 
 .nav-bar-area {
@@ -69,9 +77,11 @@ html[data-theme=dark] {
 
 .search-box input {
     width: 100%;
-    padding: 0.5rem 0.75rem;
-    border-width: 3px;
-    border-radius: 12px;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
 }
 
 .nav-bar {
@@ -101,13 +111,20 @@ html[data-theme=dark] {
     font-size: large;
 }
 
+.nav-bar a {
+    color: var(--nav-bar-link-color);
+}
+
 .menu-list section {
     margin: 0.2rem 0;
 }
 
 .menu-list h3 {
-    font-weight: 700;
-    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.25rem 0;
 }
 
 .menu-list li {
@@ -115,20 +132,29 @@ html[data-theme=dark] {
     margin-right: 1rem;
 }
 
+.menu-list normal-item a,
 .menu-list selected-item a {
     display: block;
     border-radius: 6px;
-    margin: 0.02rem 0.1rem;
-    padding: 0 0 0 15px;
-    pointer-events: none;
-    text-decoration: underline;
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    line-height: 0.9rem;
+    transition: all 0.2s ease;
+    position: relative;
 }
 
 .menu-list normal-item a {
-    display: block;
-    border-radius: 6px;
-    margin: 0.02rem 0.1rem;
-    padding: 0 0 0 15px;
+    color: var(--menu-list-normal-item-color);
     pointer-events: auto;
-    text-decoration: none;
+}
+
+.menu-list selected-item a {
+    color: var(--menu-list-selected-item-color);
+    background-color: var(--menu-list-hover-background-color);
+    pointer-events: none;
+}
+
+.menu-list normal-item a:hover {
+    background-color: var(--menu-list-hover-background-color);
 }
