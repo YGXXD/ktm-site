@@ -16,12 +16,7 @@ pub struct NavBarItemProps {
 pub fn NavBar(logo: Option<NavBarLogoProps>, items: Vec<NavBarItemProps>) -> Element {
     rsx! {
         div {
-            style: r#"
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                align-items: center;
-            "#,
+            class: "nav-bar",
             if let Some(logo) = logo {
                 img {
                     src: logo.src.clone(),
@@ -29,29 +24,20 @@ pub fn NavBar(logo: Option<NavBarLogoProps>, items: Vec<NavBarItemProps>) -> Ele
                 }
             }
             ul {
-                style: r#"
-                    display: flex;
-                    flex-direction: row;
-                    list-style: none;
-                    align-items: center;
-                    margin-left: auto;
-                    margin-right: 1rem;
-                "#,
                 for (index, item) in items.iter().enumerate() {
-                    li {
-                        style: {
-                            if index != items.len() - 1 {r#"
-                                margin-top: 1.5rem;
-                                margin-right: 1rem;
-                                font-size: large;
-                            "#} else {r#"
-                                margin-top: 1.5rem;
-                                font-size: large;
-                            "#}
-                        },
-                        Link {
-                            to: item.to.clone(),
-                            "{item.label}"
+                    if index != items.len() - 1 {
+                        normal-item {
+                            Link {
+                                to: item.to.clone(),
+                                "{item.label}"
+                            }
+                        }
+                    }  else {
+                        last-item {
+                            Link {
+                                to: item.to.clone(),
+                                "{item.label}"
+                            }
                         }
                     }
                 }

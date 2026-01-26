@@ -13,53 +13,34 @@ pub struct MenuListSectionProps {
 }
 
 #[component]
-pub fn MenuList(
-    sections: Vec<MenuListSectionProps>,
-    selected: Option<(usize, usize)>,
-) -> Element {
+pub fn MenuList(sections: Vec<MenuListSectionProps>, selected: Option<(usize, usize)>) -> Element {
     #[cfg(debug_assertions)]
     {
         dioxus::logger::tracing::debug!("menu list render");
     }
     rsx! {
         div {
+            class: "menu-list",
             for (si, section) in sections.iter().enumerate() {
-                div {
-                    style: "margin: 0.5rem 0;",
-                    h3 {
-                        style: r#"
-                            font-weight: 700;
-                            margin: 0;
-                        "#,
-                        "{section.title}"
-                    }
+                section {
+                    h3 { "{section.title}" }
                     div {
                         for (ii, item) in section.items.iter().enumerate() {
                             li {
-                                style: r#"
-                                    list-style: none;
-                                    margin-right: 1rem;
-                                "#,
-                                Link {
-                                    style: if selected.is_some() && selected.unwrap() == (si, ii) {
-                                        r#"
-                                            display: block;
-                                            border-radius: 6px;
-                                            margin: 0.05rem 0.8rem;
-                                            pointer-events: none;
-                                            text-decoration: underline;
-                                        "#
-                                    } else {
-                                        r#"
-                                            display: block;
-                                            border-radius: 6px;
-                                            margin: 0.05rem 0.8rem;
-                                            pointer-events: auto;
-                                            text-decoration: none;
-                                        "#
-                                    },
-                                    to: item.to.clone(),
-                                    "{item.label}"
+                                if selected.is_some() && selected.unwrap() == (si, ii) {
+                                    selected-item {
+                                        Link {
+                                            to: item.to.clone(),
+                                            "{item.label}"
+                                        }
+                                    }
+                                } else {
+                                    normal-item {
+                                        Link {
+                                            to: item.to.clone(),
+                                            "{item.label}"
+                                        }
+                                    }
                                 }
                             }
                         }

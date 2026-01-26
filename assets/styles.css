@@ -66,3 +66,69 @@ html[data-theme=dark] {
     padding-right: 1rem;
     overflow: auto;
 }
+
+.search-box input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-width: 3px;
+    border-radius: 12px;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-bar ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.nav-bar normal-item {
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    font-size: large;
+}
+
+.nav-bar last-item {
+    margin-top: 1.5rem;
+    font-size: large;
+}
+
+.menu-list section {
+    margin: 0.2rem 0;
+}
+
+.menu-list h3 {
+    font-weight: 700;
+    margin: 0;
+}
+
+.menu-list li {
+    list-style: none;
+    margin-right: 1rem;
+}
+
+.menu-list selected-item a {
+    display: block;
+    border-radius: 6px;
+    margin: 0.02rem 0.1rem;
+    padding: 0 0 0 15px;
+    pointer-events: none;
+    text-decoration: underline;
+}
+
+.menu-list normal-item a {
+    display: block;
+    border-radius: 6px;
+    margin: 0.02rem 0.1rem;
+    padding: 0 0 0 15px;
+    pointer-events: auto;
+    text-decoration: none;
+}

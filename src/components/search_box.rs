@@ -10,13 +10,8 @@ pub fn SearchBox(placeholder: String, oninput: EventHandler<String>) -> Element 
 
     rsx! {
         div {
+            class: "search-box",
             input {
-                style: r#"
-                    width: 100%;
-                    padding: 0.5rem 0.75rem;
-                    border-width: 3px;
-                    border-radius: 12px;
-                "#,
                 r#type: "text",
                 placeholder: placeholder,
                 oninput: oninput
