@@ -1,5 +1,29 @@
 * {
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+}
+
+::selection {
+    background-color: var(--bg-selection);
 }
 
 :root {
@@ -12,6 +36,12 @@
     --color-blockquote-text: #444950;
     --bg-table-striped: #f0f8ff;
     --bg-code-inline: #f5f9ff;
+    --color-accent: #6366f1;
+    --bg-selection: #00755a2e;
+    --scrollbar-thumb: #1c1e2133;
+    --scrollbar-thumb-hover: #1c1e2154;
+    --bg-glow-a: #34d39915;
+    --bg-glow-b: #a78bfa15;
     --font-family-base: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-code: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --font-size-body: 100%;
@@ -39,10 +69,20 @@ html[data-theme=dark] {
     --color-blockquote-text: #ebedf0;
     --bg-table-striped: #ffffff12;
     --bg-code-inline: #ffffff1a;
+    --color-accent: #818cf8;
+    --bg-selection: #28d2ad3d;
+    --scrollbar-thumb: #f5f6f72e;
+    --scrollbar-thumb-hover: #f5f6f747;
+    --bg-glow-a: #28d2ad14;
+    --bg-glow-b: #7aa7ff12;
 }
 
 html {
-    background-color: var(--bg-page);
+    background:
+        radial-gradient(60rem 32rem at 85% -10%, var(--bg-glow-a), transparent 65%),
+        radial-gradient(55rem 30rem at -8% 108%, var(--bg-glow-b), transparent 65%),
+        var(--bg-page);
+    transition: background-color 0.25s ease, color 0.25s ease;
     color: var(--color-text);
     color-scheme: var(--color-scheme);
     font: var(--font-size-body)/var(--line-height-body) var(--font-family-base);
@@ -83,6 +123,7 @@ a code {
 
 pre {
     background-color: var(--bg-code-inline);
+    border: 1px solid var(--color-table-border);
     border-radius: .4rem;
     color: inherit;
     font: 90%/1.45 var(--font-family-code);
@@ -211,7 +252,8 @@ p {
 }
 
 blockquote {
-    border-left: 2px solid var(--color-table-border);
+    border-left: 3px solid;
+    border-image: linear-gradient(180deg, var(--color-link), var(--color-accent)) 1;
     box-shadow: none;
     color: var(--color-blockquote-text);
     font-size: var(--font-size-body);
@@ -228,7 +270,7 @@ blockquote>:last-child {
 }
 
 hr {
-    background-color: var(--color-hr);
+    background: linear-gradient(90deg, transparent, var(--color-hr), transparent);
     border: 0;
     height: 1px;
     margin: 1.5rem 0;
