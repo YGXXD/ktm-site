@@ -1,11 +1,12 @@
 use crate::assets::*;
 use crate::components::nav_bar::*;
 use crate::page::docs::*;
+use crate::page::home::HomeContent;
 use dioxus::prelude::*;
 
 #[component]
 fn Home() -> Element {
-    rsx! {}
+    rsx! { HomeContent {} }
 }
 
 #[derive(Debug, Clone, Routable, PartialEq)]
