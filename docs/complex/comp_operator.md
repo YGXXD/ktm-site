@@ -1,0 +1,294 @@
+# ktm comp operator
+
+## operator[]
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| i | `size_t` | 分量下标，不检查越界 |
+| 返回值 | `T&` | 分量引用 |
+
+## operator*（解引用）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| 返回值 | `vec<2, T>&` | 一元 `*c`，按 (i, r) 顺序重解释为二维向量的引用 |
+
+## operator*（复数乘）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `comp<T>` | 复数乘积（旋转复合：先应用 y，再应用 x） |
+
+## operator*=
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `comp<T>&` | 自身引用，就地复合 |
+
+## operator*（旋转向量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| c | `const comp<T>&` | 单位复数 |
+| v | `const vec<2, T>&` | 待旋转向量 |
+| 返回值 | `vec<2, T>` | 旋转后的向量 |
+
+## operator+（复数）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `comp<T>` | 逐分量相加 |
+
+## operator-（复数）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `comp<T>` | 逐分量相减 |
+
+## operator+=（复数）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `comp<T>&` | 自身引用，逐分量加赋值 |
+
+## operator-=（复数）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `comp<T>&` | 自身引用，逐分量减赋值 |
+
+## operator-（一元）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 输入复数 |
+| 返回值 | `comp<T>` | 逐分量取反 |
+
+## operator+（标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 复数 |
+| s | `T` | 标量（`s + x` 形式亦可用） |
+| 返回值 | `comp<T>` | 逐分量加标量 |
+
+## operator-（标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 复数 |
+| s | `T` | 标量（无 `s − x` 形式） |
+| 返回值 | `comp<T>` | 逐分量减标量 |
+
+## operator+=（标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| s | `T` | 标量 |
+| 返回值 | `comp<T>&` | 自身引用，逐分量加赋值 |
+
+## operator-=（标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| s | `T` | 标量 |
+| 返回值 | `comp<T>&` | 自身引用，逐分量减赋值 |
+
+## operator*（标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 复数 |
+| s | `T` | 标量（`s * x` 形式亦可用） |
+| 返回值 | `comp<T>` | 逐分量乘标量 |
+
+## operator/（标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 复数 |
+| s | `T` | 标量（无 `s / x` 形式） |
+| 返回值 | `comp<T>` | 逐分量除标量 |
+
+## operator*=（标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| s | `T` | 标量 |
+| 返回值 | `comp<T>&` | 自身引用，逐分量乘赋值 |
+
+## operator/=（标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| s | `T` | 标量 |
+| 返回值 | `comp<T>&` | 自身引用，逐分量除赋值 |
+
+## ktm_op_madd（复数 × 标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 被加复数 |
+| y | `const comp<T>&` | 乘数复数 |
+| s | `T` | 被乘标量 |
+| 返回值 | `comp<T>` | 新复数 `x + y*s`（使用 fma） |
+
+## ktm_op_smadd（复数 × 标量）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `comp<T>&` | 被加复数 |
+| y | `const comp<T>&` | 乘数复数 |
+| s | `T` | 被乘标量 |
+| 返回值 | `comp<T>&` | 就地 `x += y*s`，返回 x 引用（使用 fma） |
+
+## ktm_op_madd（标量 × 复数）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 被加复数 |
+| s | `T` | 乘数标量 |
+| z | `const comp<T>&` | 被乘复数 |
+| 返回值 | `comp<T>` | 新复数 `x + s*z`（使用 fma） |
+
+## ktm_op_smadd（标量 × 复数）
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `comp<T>&` | 被加复数 |
+| s | `T` | 乘数标量 |
+| z | `const comp<T>&` | 被乘复数 |
+| 返回值 | `comp<T>&` | 就地 `x += s*z`，返回 x 引用（使用 fma） |
+
+## operator==
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `bool` | 按 (i, r) 顺序的字典序相等判断 |
+
+## operator!=
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `bool` | 按 (i, r) 顺序的字典序不等判断 |
+
+## operator<
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `bool` | 按 (i, r) 顺序的字典序小于判断 |
+
+## operator>
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `bool` | 按 (i, r) 顺序的字典序大于判断 |
+
+## operator<=
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `bool` | 按 (i, r) 顺序的字典序小于等于判断 |
+
+## operator>=
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| x | `const comp<T>&` | 左复数 |
+| y | `const comp<T>&` | 右复数 |
+| 返回值 | `bool` | 按 (i, r) 顺序的字典序大于等于判断 |
+
+## operator<<
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| out | `std::ostream&` | 输出流（支持 char 与 wchar_t 两套流） |
+| c | `const comp<T>&` | 输出复数 |
+| 返回值 | 流引用 | 空格分隔输出 i r |
+
+## operator>>
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| in | `std::istream&` | 输入流（支持 char 与 wchar_t 两套流） |
+| c | `comp<T>&` | 输入复数 |
+| 返回值 | 流引用 | 依次读入 2 个分量 |

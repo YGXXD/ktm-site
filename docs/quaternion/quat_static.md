@@ -1,0 +1,104 @@
+# ktm quat static
+
+## identity
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| 返回值 | `quat<T>` | 单位四元数 (0, 0, 0, 1) |
+
+## real_imag
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| real | `T` | 实部 |
+| imag | `const vec<3, T>&` | 虚部向量 |
+| 返回值 | `quat<T>` | 由实部与虚部构造的四元数 |
+
+## angle_axis
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| angle | `T` | 旋转角（弧度） |
+| axis | `const vec<3, T>&` | 旋转轴，须为单位向量 |
+| 返回值 | `quat<T>` | `(sin(θ/2)·axis, cos(θ/2))` |
+
+## from_angle_x
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| angle | `T` | 旋转角（弧度） |
+| 返回值 | `quat<T>` | 绕 X 轴旋转 angle 的四元数 |
+
+## from_angle_y
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| angle | `T` | 旋转角（弧度） |
+| 返回值 | `quat<T>` | 绕 Y 轴旋转 angle 的四元数 |
+
+## from_angle_z
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| angle | `T` | 旋转角（弧度） |
+| 返回值 | `quat<T>` | 绕 Z 轴旋转 angle 的四元数 |
+
+## from_to
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| from | `const vec<3, T>&` | 起始方向向量 |
+| to | `const vec<3, T>&` | 目标方向向量 |
+| 返回值 | `quat<T>` | 将 from 方向旋转到 to 方向的四元数（任意角度，含 180°） |
+
+## from_matrix
+
+T 支持类型：float / double
+
+**重载 1（3×3 矩阵）**
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| m | `const mat<3, 3, T>&` | 旋转矩阵 |
+| 返回值 | `quat<T>` | 由旋转矩阵构造的四元数 |
+
+**重载 2（4×4 矩阵）**
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| m | `const mat<4, 4, T>&` | 旋转矩阵（取左上 3×3） |
+| 返回值 | `quat<T>` | 由旋转矩阵构造的四元数 |
+
+## look_to_lh
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| direction | `const vec<3, T>&` | 前向方向 |
+| up | `const vec<3, T>&` | 上方向 |
+| 返回值 | `quat<T>` | 观察朝向四元数，以 +direction 为前向（左手系） |
+
+## look_to_rh
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| direction | `const vec<3, T>&` | 前向方向 |
+| up | `const vec<3, T>&` | 上方向 |
+| 返回值 | `quat<T>` | 观察朝向四元数，以 −direction 为前向（右手系） |

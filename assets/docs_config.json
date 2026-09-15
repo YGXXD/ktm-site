@@ -1,89 +1,54 @@
 [
     {
-        "title": "section1",
+        "title": "vector",
         "items": [
-            "add",
-            "sub"
+            "vec",
+            "vec_operator"
         ]
     },
     {
-        "title": "section2",
+        "title": "matrix",
         "items": [
-            "mul",
-            "div",
-            "mod"
+            "mat",
+            "mat_static",
+            "mat_operator"
         ]
     },
     {
-        "title": "section3",
+        "title": "quaternion",
         "items": [
-            "mul",
-            "div",
-            "mod"
+            "quat",
+            "quat_static",
+            "quat_operator"
         ]
     },
     {
-        "title": "section4",
+        "title": "complex",
         "items": [
-            "mul",
-            "div",
-            "mod"
+            "comp",
+            "comp_static",
+            "comp_operator"
         ]
     },
     {
-        "title": "section5",
+        "title": "affine",
         "items": [
-            "mul",
-            "div",
-            "mod"
+            "affine2d",
+            "affine2d_operator",
+            "affine3d",
+            "affine3d_operator"
         ]
     },
     {
-        "title": "section6",
+        "title": "function",
         "items": [
-            "mul",
-            "div",
-            "mod"
-        ]
-    },
-    {
-        "title": "section7",
-        "items": [
-            "mul",
-            "div",
-            "mod"
-        ]
-    },
-    {
-        "title": "section8",
-        "items": [
-            "mul",
-            "div",
-            "mod"
-        ]
-    },
-    {
-        "title": "section9",
-        "items": [
-            "mul",
-            "div",
-            "mod"
-        ]
-    },
-    {
-        "title": "section10",
-        "items": [
-            "mul",
-            "div",
-            "mod"
-        ]
-    },
-    {
-        "title": "section11",
-        "items": [
-            "mul",
-            "div",
-            "mod"
+            "common",
+            "compare",
+            "geometric",
+            "matrix",
+            "quaternion",
+            "complex",
+            "random"
         ]
     }
 ]

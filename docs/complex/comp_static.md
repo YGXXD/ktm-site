@@ -1,0 +1,56 @@
+# ktm comp static
+
+## identity
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| 返回值 | `comp<T>` | 单位复数 (i=0, r=1) |
+
+## real_imag
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| real | `T` | 实部 |
+| imag | `T` | 虚部 |
+| 返回值 | `comp<T>` | (i=imag, r=real) |
+
+## from_angle
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| angle | `T` | 旋转角（弧度） |
+| 返回值 | `comp<T>` | `(sin(angle), cos(angle))` |
+
+## from_to
+
+T 支持类型：float / double
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| from | `const vec<2, T>&` | 起始方向向量 |
+| to | `const vec<2, T>&` | 目标方向向量 |
+| 返回值 | `comp<T>` | 将 from 方向旋转到 to 方向的复数 |
+
+## from_matrix
+
+T 支持类型：float / double
+
+**重载 1（2×2 矩阵）**
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| m | `const mat<2, 2, T>&` | 旋转矩阵 |
+| 返回值 | `comp<T>` | i = m[0][1]（sin 分量）、r = m[0][0]（cos 分量） |
+
+**重载 2（3×3 矩阵）**
+
+| 参数名 | 类型 | 解释 |
+|:-|:-|:-|
+| m | `const mat<3, 3, T>&` | 旋转矩阵（取左上 2×2） |
+| 返回值 | `comp<T>` | i = m[0][1]（sin 分量）、r = m[0][0]（cos 分量） |
