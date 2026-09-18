@@ -1,8 +1,8 @@
-# ktm comp static
+# ktm api: comp 静态方法
 
 ## identity
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -10,7 +10,7 @@ T 支持类型：float / double
 
 ## real_imag
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -20,7 +20,7 @@ T 支持类型：float / double
 
 ## from_angle
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -29,7 +29,7 @@ T 支持类型：float / double
 
 ## from_to
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -39,16 +39,16 @@ T 支持类型：float / double
 
 ## from_matrix
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
-**重载 1（2×2 矩阵）**
+#### 重载 1（2×2 矩阵）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
 | m | `const mat<2, 2, T>&` | 旋转矩阵 |
 | 返回值 | `comp<T>` | i = m[0][1]（sin 分量）、r = m[0][0]（cos 分量） |
 
-**重载 2（3×3 矩阵）**
+#### 重载 2（3×3 矩阵）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|

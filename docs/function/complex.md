@@ -1,8 +1,8 @@
-# ktm complex function
+# ktm api: complex 函数
 
 ## conjugate
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -11,7 +11,7 @@ T 支持类型：float / double
 
 ## inverse
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -20,7 +20,7 @@ T 支持类型：float / double
 
 ## lerp
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -31,7 +31,7 @@ T 支持类型：float / double
 
 ## dot
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -41,7 +41,7 @@ T 支持类型：float / double
 
 ## length
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -50,7 +50,7 @@ T 支持类型：float / double
 
 ## normalize
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -59,7 +59,7 @@ T 支持类型：float / double
 
 ## exp
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -68,7 +68,7 @@ T 支持类型：float / double
 
 ## log
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -77,7 +77,7 @@ T 支持类型：float / double
 
 ## slerp
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -88,7 +88,7 @@ T 支持类型：float / double
 
 ## slerp_longest
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -99,7 +99,7 @@ T 支持类型：float / double
 
 ## slerp_internal
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|

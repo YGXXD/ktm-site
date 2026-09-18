@@ -1,8 +1,8 @@
-# ktm geometric
+# ktm api: geometric 函数
 
 ## dot
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -12,7 +12,7 @@ T 支持类型：浮点类型（float / double）
 
 ## project
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -22,9 +22,9 @@ T 支持类型：浮点类型（float / double）
 
 ## cross
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
-**重载 1（三维）**
+#### 重载 1（三维）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -32,7 +32,7 @@ T 支持类型：浮点类型（float / double）
 | y | `const vec<3, T>&` | 同型向量 |
 | 返回值 | `vec<3, T>` | 叉积向量，垂直于 x 与 y |
 
-**重载 2（二维）**
+#### 重载 2（二维）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -42,7 +42,7 @@ T 支持类型：浮点类型（float / double）
 
 ## length
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -51,7 +51,7 @@ T 支持类型：浮点类型（float / double）
 
 ## length_squared
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -60,7 +60,7 @@ T 支持类型：浮点类型（float / double）
 
 ## distance
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -70,7 +70,7 @@ T 支持类型：浮点类型（float / double）
 
 ## normalize
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -79,7 +79,7 @@ T 支持类型：浮点类型（float / double）
 
 ## reflect
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -89,7 +89,7 @@ T 支持类型：浮点类型（float / double）
 
 ## refract
 
-T 支持类型：浮点类型（float / double）
+**T 支持类型**：浮点类型（float / double）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -100,7 +100,7 @@ T 支持类型：浮点类型（float / double）
 
 ## fast::project
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -110,7 +110,7 @@ T 支持类型：float / double
 
 ## fast::length
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -119,7 +119,7 @@ T 支持类型：float / double
 
 ## fast::distance
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -129,7 +129,7 @@ T 支持类型：float / double
 
 ## fast::normalize
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|

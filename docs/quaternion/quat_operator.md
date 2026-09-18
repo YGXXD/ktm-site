@@ -1,8 +1,8 @@
-# ktm quat operator
+# ktm api: quat 运算符
 
 ## operator[]
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -11,7 +11,7 @@ T 支持类型：float / double
 
 ## operator*（解引用）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -19,7 +19,7 @@ T 支持类型：float / double
 
 ## operator*（四元数乘）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -29,7 +29,7 @@ T 支持类型：float / double
 
 ## operator*=
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -38,7 +38,7 @@ T 支持类型：float / double
 
 ## operator*（旋转向量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -48,7 +48,7 @@ T 支持类型：float / double
 
 ## operator+（四元数）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -58,7 +58,7 @@ T 支持类型：float / double
 
 ## operator-（四元数）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -68,7 +68,7 @@ T 支持类型：float / double
 
 ## operator+=（四元数）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -77,7 +77,7 @@ T 支持类型：float / double
 
 ## operator-=（四元数）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -86,7 +86,7 @@ T 支持类型：float / double
 
 ## operator-（一元）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -95,7 +95,7 @@ T 支持类型：float / double
 
 ## operator+（标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -105,7 +105,7 @@ T 支持类型：float / double
 
 ## operator-（标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -115,7 +115,7 @@ T 支持类型：float / double
 
 ## operator+=（标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -124,7 +124,7 @@ T 支持类型：float / double
 
 ## operator-=（标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -133,7 +133,7 @@ T 支持类型：float / double
 
 ## operator*（标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -143,7 +143,7 @@ T 支持类型：float / double
 
 ## operator/（标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -153,7 +153,7 @@ T 支持类型：float / double
 
 ## operator*=（标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -162,7 +162,7 @@ T 支持类型：float / double
 
 ## operator/=（标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -171,7 +171,7 @@ T 支持类型：float / double
 
 ## ktm_op_madd（四元数 × 标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -182,7 +182,7 @@ T 支持类型：float / double
 
 ## ktm_op_smadd（四元数 × 标量）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -193,7 +193,7 @@ T 支持类型：float / double
 
 ## ktm_op_madd（标量 × 四元数）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -204,7 +204,7 @@ T 支持类型：float / double
 
 ## ktm_op_smadd（标量 × 四元数）
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -215,7 +215,7 @@ T 支持类型：float / double
 
 ## operator==
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -225,7 +225,7 @@ T 支持类型：float / double
 
 ## operator!=
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -235,7 +235,7 @@ T 支持类型：float / double
 
 ## operator<
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -245,7 +245,7 @@ T 支持类型：float / double
 
 ## operator>
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -255,7 +255,7 @@ T 支持类型：float / double
 
 ## operator<=
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -265,7 +265,7 @@ T 支持类型：float / double
 
 ## operator>=
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -275,7 +275,7 @@ T 支持类型：float / double
 
 ## operator<<
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -285,7 +285,7 @@ T 支持类型：float / double
 
 ## operator>>
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|

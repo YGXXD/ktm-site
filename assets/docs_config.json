@@ -1,15 +1,31 @@
 [
     {
+        "title": "guide",
+        "items": [
+            "introduction",
+            "installation",
+            "quickstart",
+            "vector",
+            "matrix",
+            "quaternion",
+            "complex",
+            "affine",
+            "transform",
+            "decompose",
+            "best_practices"
+        ]
+    },
+    {
         "title": "vector",
         "items": [
-            "vec",
+            "vec_type",
             "vec_operator"
         ]
     },
     {
         "title": "matrix",
         "items": [
-            "mat",
+            "mat_type",
             "mat_static",
             "mat_operator"
         ]
@@ -17,7 +33,7 @@
     {
         "title": "quaternion",
         "items": [
-            "quat",
+            "quat_type",
             "quat_static",
             "quat_operator"
         ]
@@ -25,7 +41,7 @@
     {
         "title": "complex",
         "items": [
-            "comp",
+            "comp_type",
             "comp_static",
             "comp_operator"
         ]
@@ -33,9 +49,9 @@
     {
         "title": "affine",
         "items": [
-            "affine2d",
+            "affine2d_type",
             "affine2d_operator",
-            "affine3d",
+            "affine3d_type",
             "affine3d_operator"
         ]
     },

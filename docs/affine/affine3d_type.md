@@ -1,4 +1,4 @@
-# ktm affine3d
+# ktm api: affine3d 类型
 
 ## 类型定义
 
@@ -10,7 +10,7 @@
 
 ## 数据成员
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 成员 | 类型 | 解释 |
 |:-|:-|:-|
@@ -18,21 +18,21 @@ T 支持类型：float / double
 
 ## 构造函数
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
-**重载 1（默认）**
+#### 重载 1（默认）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
 | （无参） | — | 单位变换 |
 
-**重载 2（3×3 矩阵）**
+#### 重载 2（3×3 矩阵）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
 | matrix | `const mat<3, 3, T>&` | 取线性部分，平移为 0 |
 
-**重载 3（4×4 矩阵）**
+#### 重载 3（4×4 矩阵）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -40,9 +40,9 @@ T 支持类型：float / double
 
 ## translate
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
-**重载 1（标量分量）**
+#### 重载 1（标量分量）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -51,7 +51,7 @@ T 支持类型：float / double
 | z | `T` | 平移分量 z |
 | 返回值 | `affine3d&` | 自身引用，沿 (x, y, z) 平移，支持链式调用 |
 
-**重载 2（向量）**
+#### 重载 2（向量）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -60,7 +60,7 @@ T 支持类型：float / double
 
 ## rotate
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -69,7 +69,7 @@ T 支持类型：float / double
 
 ## rotate_x
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -78,7 +78,7 @@ T 支持类型：float / double
 
 ## rotate_y
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -87,7 +87,7 @@ T 支持类型：float / double
 
 ## rotate_z
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -96,7 +96,7 @@ T 支持类型：float / double
 
 ## rotate_axis
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -106,7 +106,7 @@ T 支持类型：float / double
 
 ## rotate_from_to
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -116,9 +116,9 @@ T 支持类型：float / double
 
 ## scale
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
-**重载 1（标量分量）**
+#### 重载 1（标量分量）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -127,7 +127,7 @@ T 支持类型：float / double
 | z | `T` | 缩放分量 z |
 | 返回值 | `affine3d&` | 自身引用，沿 X / Y / Z 轴缩放 |
 
-**重载 2（向量）**
+#### 重载 2（向量）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -136,7 +136,7 @@ T 支持类型：float / double
 
 ## shear_x
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -146,7 +146,7 @@ T 支持类型：float / double
 
 ## shear_y
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -156,7 +156,7 @@ T 支持类型：float / double
 
 ## shear_z
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -166,23 +166,23 @@ T 支持类型：float / double
 
 ## concat
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
-**重载 1（仿射变换）**
+#### 重载 1（仿射变换）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
 | affine | `const affine3d&` | 右复合的仿射变换 |
 | 返回值 | `affine3d&` | 自身引用，右复合 |
 
-**重载 2（3×3 矩阵）**
+#### 重载 2（3×3 矩阵）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
 | matrix | `const mat<3, 3, T>&` | 右复合的线性矩阵 |
 | 返回值 | `affine3d&` | 自身引用，右复合 |
 
-**重载 3（4×4 矩阵）**
+#### 重载 3（4×4 矩阵）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -191,7 +191,7 @@ T 支持类型：float / double
 
 ## invert
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -199,7 +199,7 @@ T 支持类型：float / double
 
 ## matrix3x3
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -208,7 +208,7 @@ T 支持类型：float / double
 
 ## matrix4x4
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|

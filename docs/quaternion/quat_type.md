@@ -1,4 +1,4 @@
-# ktm quat
+# ktm api: quat 类型
 
 ## 类型定义
 
@@ -10,7 +10,7 @@
 
 ## 数据成员
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 成员 | 类型 | 解释 |
 |:-|:-|:-|
@@ -19,21 +19,21 @@ T 支持类型：float / double
 
 ## 构造函数
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
-**重载 1（默认）**
+#### 重载 1（默认）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
 | （无参） | — | 全部分量初始化为 0 |
 
-**重载 2（分量构造）**
+#### 重载 2（分量构造）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
 | x, y, z, w | `T...` | 依次赋给 i、j、k、r（实部在最后） |
 
-**重载 3（向量构造）**
+#### 重载 3（向量构造）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -41,7 +41,7 @@ T 支持类型：float / double
 
 ## real
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -49,7 +49,7 @@ T 支持类型：float / double
 
 ## imag
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -57,7 +57,7 @@ T 支持类型：float / double
 
 ## angle
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -65,7 +65,7 @@ T 支持类型：float / double
 
 ## axis
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -73,7 +73,7 @@ T 支持类型：float / double
 
 ## matrix3x3
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -81,7 +81,7 @@ T 支持类型：float / double
 
 ## matrix4x4
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -89,7 +89,7 @@ T 支持类型：float / double
 
 ## to_array
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -97,7 +97,7 @@ T 支持类型：float / double
 
 ## data
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -105,7 +105,7 @@ T 支持类型：float / double
 
 ## begin
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -113,7 +113,7 @@ T 支持类型：float / double
 
 ## end
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -121,7 +121,7 @@ T 支持类型：float / double
 
 ## rbegin
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -129,7 +129,7 @@ T 支持类型：float / double
 
 ## rend
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -137,7 +137,7 @@ T 支持类型：float / double
 
 ## cbegin
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -145,7 +145,7 @@ T 支持类型：float / double
 
 ## cend
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -153,7 +153,7 @@ T 支持类型：float / double
 
 ## crbegin
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -161,7 +161,7 @@ T 支持类型：float / double
 
 ## crend
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -169,7 +169,7 @@ T 支持类型：float / double
 
 ## size
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -177,7 +177,7 @@ T 支持类型：float / double
 
 ## max_size
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -185,7 +185,7 @@ T 支持类型：float / double
 
 ## empty
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -193,7 +193,7 @@ T 支持类型：float / double
 
 ## at
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -202,7 +202,7 @@ T 支持类型：float / double
 
 ## front
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -210,7 +210,7 @@ T 支持类型：float / double
 
 ## back
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -218,7 +218,7 @@ T 支持类型：float / double
 
 ## to_string
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -226,7 +226,7 @@ T 支持类型：float / double
 
 ## to_wstring
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|

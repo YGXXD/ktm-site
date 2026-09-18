@@ -1,8 +1,8 @@
-# ktm quat static
+# ktm api: quat 静态方法
 
 ## identity
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -10,7 +10,7 @@ T 支持类型：float / double
 
 ## real_imag
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -20,7 +20,7 @@ T 支持类型：float / double
 
 ## angle_axis
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -30,7 +30,7 @@ T 支持类型：float / double
 
 ## from_angle_x
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -39,7 +39,7 @@ T 支持类型：float / double
 
 ## from_angle_y
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -48,7 +48,7 @@ T 支持类型：float / double
 
 ## from_angle_z
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -57,7 +57,7 @@ T 支持类型：float / double
 
 ## from_to
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -67,16 +67,16 @@ T 支持类型：float / double
 
 ## from_matrix
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
-**重载 1（3×3 矩阵）**
+#### 重载 1（3×3 矩阵）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
 | m | `const mat<3, 3, T>&` | 旋转矩阵 |
 | 返回值 | `quat<T>` | 由旋转矩阵构造的四元数 |
 
-**重载 2（4×4 矩阵）**
+#### 重载 2（4×4 矩阵）
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -85,7 +85,7 @@ T 支持类型：float / double
 
 ## look_to_lh
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
@@ -95,7 +95,7 @@ T 支持类型：float / double
 
 ## look_to_rh
 
-T 支持类型：float / double
+**T 支持类型**：float / double
 
 | 参数名 | 类型 | 解释 |
 |:-|:-|:-|
