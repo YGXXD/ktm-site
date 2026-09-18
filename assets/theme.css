@@ -28,20 +28,20 @@
 
 :root {
     --color-scheme: light;
-    --bg-page: #f9f7f0;
-    --color-text: #1c1e21;
-    --color-link: #00755a;
-    --color-table-border: #d4e6f8;
-    --color-hr: #b3d4ec;
-    --color-blockquote-text: #444950;
-    --bg-table-striped: #f0f8ff;
-    --bg-code-inline: #f5f9ff;
-    --color-accent: #6366f1;
-    --bg-selection: #00755a2e;
-    --scrollbar-thumb: #1c1e2133;
-    --scrollbar-thumb-hover: #1c1e2154;
-    --bg-glow-a: #34d39915;
-    --bg-glow-b: #a78bfa15;
+    --bg-page: #f2f7fd;
+    --color-text: #1d3a5c;
+    --color-link: #2f7cc4;
+    --color-table-border: #bcd8f2;
+    --color-hr: #a3c8ec;
+    --color-blockquote-text: #3a5a80;
+    --bg-table-striped: #eaf3fc;
+    --bg-code-inline: #e9f3fd;
+    --color-accent: #5aa7f0;
+    --bg-selection: #2f7cc42e;
+    --scrollbar-thumb: #1d3a5c33;
+    --scrollbar-thumb-hover: #1d3a5c54;
+    --bg-glow-a: #5aa7f015;
+    --bg-glow-b: #89c4f715;
     --font-family-base: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-code: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --font-size-body: 100%;
@@ -61,20 +61,20 @@
 
 html[data-theme=dark] {
     --color-scheme: dark;
-    --bg-page: #1b1b1d;
-    --color-text: #f5f6f7;
-    --color-link: #28d2ad;
-    --color-table-border: #606770;
-    --color-hr: #bec3c9;
-    --color-blockquote-text: #ebedf0;
-    --bg-table-striped: #ffffff12;
-    --bg-code-inline: #ffffff1a;
-    --color-accent: #818cf8;
-    --bg-selection: #28d2ad3d;
-    --scrollbar-thumb: #f5f6f72e;
-    --scrollbar-thumb-hover: #f5f6f747;
-    --bg-glow-a: #28d2ad14;
-    --bg-glow-b: #7aa7ff12;
+    --bg-page: #2a1a1e;
+    --color-text: #f9ecec;
+    --color-link: #ff7b8a;
+    --color-table-border: #93535c;
+    --color-hr: #a35a5a;
+    --color-blockquote-text: #f0d8d8;
+    --bg-table-striped: #ff7b8a10;
+    --bg-code-inline: #ff7b8a14;
+    --color-accent: #ffb08a;
+    --bg-selection: #ff7b8a3d;
+    --scrollbar-thumb: #f9ecec2e;
+    --scrollbar-thumb-hover: #f9ecec47;
+    --bg-glow-a: #ff7b8a1c;
+    --bg-glow-b: #ffb08a1c;
 }
 
 html {

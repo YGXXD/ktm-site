@@ -1,21 +1,21 @@
 :root {
     --guide-height: 80px;
-    --guide-background-color: #00000024;
-    --nav-bar-link-color: #410243;
-    --nav-bar-shadow: #0000001f;
+    --guide-background-color: #1d3a5c1f;
+    --nav-bar-link-color: #1d4e89;
+    --nav-bar-shadow: #1d3a5c2e;
     --nav-underline-gradient: linear-gradient(90deg, var(--color-link), var(--color-accent));
-    --menu-list-normal-item-color: #2d3748;
-    --menu-list-selected-item-color: #1a202c;
-    --menu-list-hover-background-color: #5d23231a;
+    --menu-list-normal-item-color: #2b4a6b;
+    --menu-list-selected-item-color: #16324f;
+    --menu-list-hover-background-color: #5aa7f01a;
 }
 
 html[data-theme=dark] {
-    --guide-background-color: #ffffff12;
-    --nav-bar-link-color: #94c9e8;
+    --guide-background-color: #ff7b8a14;
+    --nav-bar-link-color: #ffc4cc;
     --nav-bar-shadow: #00000066;
-    --menu-list-normal-item-color: #e2e8f0;
-    --menu-list-selected-item-color: #f7fafc;
-    --menu-list-hover-background-color: #79a9f328;
+    --menu-list-normal-item-color: #f0d5da;
+    --menu-list-selected-item-color: #fdf0f2;
+    --menu-list-hover-background-color: #ff7b8a28;
 }
 
 .nav-bar-area {
@@ -42,11 +42,15 @@ html[data-theme=dark] {
 }
 
 .nav-bar img {
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
 }
 
 .nav-bar img:hover {
     transform: rotate(-8deg) scale(1.1);
+}
+
+html[data-theme=dark] .nav-bar img {
+    filter: sepia(0.75) hue-rotate(-42deg) saturate(2.4) brightness(0.95) drop-shadow(0 0 6px #ff7b8a33);
 }
 
 .nav-bar-content {
