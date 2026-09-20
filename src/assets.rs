@@ -1,9 +1,12 @@
 //  Created by 有个小小杜
 
 use dioxus::prelude::*;
-use rust_embed::RustEmbed;
 
 // server
+#[cfg(feature = "server")]
+use rust_embed::RustEmbed;
+
+#[cfg(feature = "server")]
 #[derive(RustEmbed)]
 #[folder = "docs/"]
 pub struct DocsFolder;

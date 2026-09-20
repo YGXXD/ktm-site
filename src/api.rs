@@ -1,8 +1,11 @@
 //  Created by 有个小小杜
 
-use crate::assets::DocsFolder;
 use dioxus::prelude::*;
 
+#[cfg(feature = "server")]
+use crate::assets::DocsFolder;
+
+#[cfg(feature = "server")]
 pub fn docs_content(section: String, item: String) -> Option<String> {
     let docs_content = DocsFolder::get(&format!("{}/{}.md", section, item));
     dioxus::logger::tracing::debug!("docs_content: {}", &format!("{}/{}.md", section, item));
