@@ -1,9 +1,11 @@
 :root {
     --guide-height: 80px;
     --guide-background-color: #1d3a5c1f;
-    --nav-bar-link-color: #1d4e89;
+    --nav-bar-link-color: #5c99d6;
     --nav-bar-shadow: #1d3a5c2e;
     --nav-underline-gradient: linear-gradient(90deg, var(--color-link), var(--color-accent));
+    --nav-text-glow: #5c99d61f;
+    --nav-text-glow-strong: #a3c5e92e;
     --menu-list-normal-item-color: #2b4a6b;
     --menu-list-selected-item-color: #16324f;
     --menu-list-hover-background-color: #5aa7f01a;
@@ -11,8 +13,10 @@
 
 html[data-theme=dark] {
     --guide-background-color: #ff7b8a14;
-    --nav-bar-link-color: #ffc4cc;
+    --nav-bar-link-color: #ffb8ba;
     --nav-bar-shadow: #00000066;
+    --nav-text-glow: #ffb8ba1f;
+    --nav-text-glow-strong: #ffd4d52e;
     --menu-list-normal-item-color: #f0d5da;
     --menu-list-selected-item-color: #fdf0f2;
     --menu-list-hover-background-color: #ff7b8a28;
@@ -183,11 +187,14 @@ html[data-theme=dark] .nav-bar img {
 }
 
 .nav-bar a {
-    color: var(--nav-bar-link-color);
     position: relative;
     padding-bottom: 0.2rem;
     text-decoration: none;
-    transition: color 0.2s ease;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--nav-bar-link-color);
+    filter: drop-shadow(0 0 4px var(--nav-text-glow)) drop-shadow(0 0 8px transparent);
+    transition: filter 0.25s ease, transform 0.25s ease;
 }
 
 .nav-bar a::after {
@@ -203,9 +210,28 @@ html[data-theme=dark] .nav-bar img {
     transition: width 0.25s ease;
 }
 
+.nav-bar a::before {
+    content: "✦";
+    position: absolute;
+    top: -0.5em;
+    right: -0.35em;
+    font-size: 0.55em;
+    line-height: 1;
+    color: var(--color-accent);
+    opacity: 0;
+    transform: scale(0.4) rotate(-12deg);
+    transition: opacity 0.25s ease, transform 0.35s ease;
+    pointer-events: none;
+}
+
 .nav-bar a:hover {
-    color: var(--color-link);
-    text-decoration: none;
+    filter: drop-shadow(0 0 6px var(--nav-text-glow)) drop-shadow(0 0 12px var(--nav-text-glow-strong));
+    transform: translateY(-2px) rotate(-1.5deg);
+}
+
+.nav-bar a:hover::before {
+    opacity: 1;
+    transform: scale(1) rotate(12deg);
 }
 
 .nav-bar a:hover::after {
