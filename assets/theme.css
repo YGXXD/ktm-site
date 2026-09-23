@@ -37,11 +37,16 @@
     --bg-table-striped: #eaf3fc;
     --bg-code-inline: #e9f3fd;
     --color-accent: #5aa7f0;
-    --bg-selection: #2f7cc42e;
+    --bg-selection: #9d7bf02e;
     --scrollbar-thumb: #1d3a5c33;
     --scrollbar-thumb-hover: #1d3a5c54;
-    --bg-glow-a: #5aa7f015;
-    --bg-glow-b: #89c4f715;
+    --bg-glow-a: #5aa7f047;
+    --bg-glow-b: #89c4f747;
+    --bg-glow-c: #b78ef747;
+    --bg-glow-d: #f09fc447;
+    --color-dream: #9d7bf0;
+    --color-fantasy: #e89bd8;
+    --shadow-dream: #b78ef72e;
     --font-family-base: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-code: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --font-size-body: 100%;
@@ -73,14 +78,21 @@ html[data-theme=dark] {
     --bg-selection: #ff7b8a3d;
     --scrollbar-thumb: #f9ecec2e;
     --scrollbar-thumb-hover: #f9ecec47;
-    --bg-glow-a: #ff7b8a1c;
-    --bg-glow-b: #ffb08a1c;
+    --bg-glow-a: #ff7b8a33;
+    --bg-glow-b: #ffb08a33;
+    --bg-glow-c: #ff958a33;
+    --bg-glow-d: #ffd4a833;
+    --color-dream: #ff958a;
+    --color-fantasy: #ffd4a8;
+    --shadow-dream: #ff958a2e;
 }
 
 html {
     background:
-        radial-gradient(60rem 32rem at 85% -10%, var(--bg-glow-a), transparent 65%),
-        radial-gradient(55rem 30rem at -8% 108%, var(--bg-glow-b), transparent 65%),
+        radial-gradient(70% 55% at 85% -10%, var(--bg-glow-a), transparent 65%),
+        radial-gradient(60% 50% at 50% -20%, var(--bg-glow-c), transparent 60%),
+        radial-gradient(65% 55% at -8% 108%, var(--bg-glow-b), transparent 65%),
+        radial-gradient(60% 50% at 108% 85%, var(--bg-glow-d), transparent 60%),
         var(--bg-page);
     transition: background-color 0.25s ease, color 0.25s ease;
     color: var(--color-text);
@@ -253,7 +265,7 @@ p {
 
 blockquote {
     border-left: 3px solid;
-    border-image: linear-gradient(180deg, var(--color-link), var(--color-accent)) 1;
+    border-image: linear-gradient(180deg, var(--color-link), var(--color-dream), var(--color-fantasy)) 1;
     box-shadow: none;
     color: var(--color-blockquote-text);
     font-size: var(--font-size-body);
@@ -270,7 +282,7 @@ blockquote>:last-child {
 }
 
 hr {
-    background: linear-gradient(90deg, transparent, var(--color-hr), transparent);
+    background: linear-gradient(90deg, transparent, var(--color-dream), transparent);
     border: 0;
     height: 1px;
     margin: 1.5rem 0;

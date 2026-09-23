@@ -1,5 +1,6 @@
 //  Created by 有个小小杜
 
+use crate::assets::{CORONA_ENGINE_LOGO, DORA_SSR_LOGO};
 use dioxus::prelude::*;
 
 #[component]
@@ -51,6 +52,40 @@ pub fn HomeContent() -> Element {
                         class: "home-feature-card",
                         h3 { class: "home-feature-title", "跨平台" }
                         p { class: "home-feature-desc", "哪怕世界终结于任何一座浮游大陆，它也会陪在你身边——编译、运行，直到最后" }
+                    }
+                }
+            }
+            section {
+                class: "home-partners",
+                div {
+                    class: "home-partners-wrap",
+                    hr { class: "home-partners-divider" }
+                    div {
+                        class: "home-partners-content",
+                        div {
+                            class: "home-partners-head",
+                            h2 { class: "home-partners-title", "合作项目" }
+                            p { class: "home-partners-desc", "旅人把 ktm 的魔法，轻轻写进自己的故事，便这样悄悄流传开来" }
+                        }
+                        div {
+                            class: "home-partners-grid",
+                            a {
+                                class: "home-partner-item",
+                                href: "https://github.com/IppClub/Dora-SSR",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                img { class: "home-partner-logo", src: DORA_SSR_LOGO, alt: "Dora-SSR logo" }
+                                span { class: "home-partner-name", "Dora-SSR" }
+                            }
+                            a {
+                                class: "home-partner-item",
+                                href: "https://github.com/CoronaEngine/CoronaEngine",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                img { class: "home-partner-logo", src: CORONA_ENGINE_LOGO, alt: "CoronaEngine logo" }
+                                span { class: "home-partner-name", "CoronaEngine" }
+                            }
+                        }
                     }
                 }
             }

@@ -23,6 +23,8 @@ pub const LOGO: Asset = asset!(
         .with_format(ImageFormat::Avif)
 );
 pub const DOCS_CONFIG: Asset = asset!("/assets/docs_config.json");
+pub const DORA_SSR_LOGO: Asset = asset!("/assets/dora-ssr.png");
+pub const CORONA_ENGINE_LOGO: Asset = asset!("/assets/corona-engine.png");
 // let mock_sections: Vec<MenuListSectionProps> = vec![
 //     MenuListSectionProps {
 //         title: "section1".to_owned(),
