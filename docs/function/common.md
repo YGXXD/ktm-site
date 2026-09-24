@@ -524,7 +524,7 @@
 
 ## fast::sqrt
 
-**T 支持类型**：float / double
+**T 支持类型**：仅支持 float / double
 
 #### 重载 1（标量）
 
@@ -542,7 +542,7 @@
 
 ## fast::rsqrt
 
-**T 支持类型**：float / double
+**T 支持类型**：仅支持 float / double
 
 #### 重载 1（标量）
 
@@ -560,7 +560,7 @@
 
 ## fast::recip
 
-**T 支持类型**：float / double
+**T 支持类型**：仅支持 float / double
 
 #### 重载 1（标量）
 
