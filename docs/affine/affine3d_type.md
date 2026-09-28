@@ -4,7 +4,7 @@
 
 | 类型 | 定义 | 解释 |
 |:-|:-|:-|
-| `affine3d<T>` | 模版类 | `T` 为浮点类型 |
+| `affine3d<T>` | 模板类 | `T` 为浮点类型 |
 | `faffine3d` | `affine3d<float>` | 单精度三维仿射变换 |
 | `daffine3d` | `affine3d<double>` | 双精度三维仿射变换 |
 

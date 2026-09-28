@@ -1,6 +1,6 @@
 # ktm guide: 矩阵
 
-## 模版参数与存储布局
+## 模板参数与存储布局
 
 `mat<Row, Col, T>` 的参数含义需要特别注意：
 
@@ -18,7 +18,7 @@ float m12 = m[1][2];  // 第 1 列的第 2 行元素 = 6
 
 这与 OpenGL 的 `GLSL` 一致：`m[i]` 取列，`m[i][j]` 即 `mat[i][j]`（第 j 行第 i 列）。
 
-常用别名：`fmat2x2` ~ `fmat4x4`、`dmat2x2` ~ `dmat4x4`、`smat*`、`umat*`，以及模版别名 `fmat<Row, Col>`。
+常用别名：`fmat2x2` ~ `fmat4x4`、`dmat2x2` ~ `dmat4x4`、`smat*`、`umat*`，以及模板别名 `fmat<Row, Col>`。
 
 ## 构造
 

@@ -4,7 +4,7 @@
 
 | 类型 | 定义 | 解释 |
 |:-|:-|:-|
-| `vec<N, T>` | 模版类 | `N` 为维度（`N > 1`），`T` 为分量类型 |
+| `vec<N, T>` | 模板类 | `N` 为维度（`N > 1`），`T` 为分量类型 |
 | `fvec<N>` / `fvec2` / `fvec3` / `fvec4` | `vec<N, float>` | 单精度浮点向量 |
 | `dvec<N>` / `dvec2` / `dvec3` / `dvec4` | `vec<N, double>` | 双精度浮点向量 |
 | `svec<N>` / `svec2` / `svec3` / `svec4` | `vec<N, int>` | 有符号整型向量 |
