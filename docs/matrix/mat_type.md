@@ -4,7 +4,7 @@
 
 | 类型 | 定义 | 解释 |
 |:-|:-|:-|
-| `mat<Row, Col, T>` | 模板类 | `Row` 为列数，`Col` 为每列分量数（即行数），均须大于 1 |
+| `mat<Row, Col, T>` | 模板类 | `Row` 为列数，`Col` 为每列分量数（即行数），均须大于 0 |
 | `fmat<Row, Col>` / `fmat2x2` ~ `fmat4x4` | `mat<Row, Col, float>` | 单精度浮点矩阵 |
 | `dmat<Row, Col>` / `dmat2x2` ~ `dmat4x4` | `mat<Row, Col, double>` | 双精度浮点矩阵 |
 | `smat<Row, Col>` / `smat2x2` ~ `smat4x4` | `mat<Row, Col, int>` | 有符号整型矩阵 |

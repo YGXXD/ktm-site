@@ -1,6 +1,6 @@
 # ktm guide: 向量
 
-向量是 ktm 中最基础也最常用的类型。`vec<N, T>` 支持任意维度 `N > 1` 与任意算术类型 `T`。
+向量是 ktm 中最基础也最常用的类型。`vec<N, T>` 支持任意维度 `N > 0` 与任意算术类型 `T`。
 
 ## 类型与别名
 
@@ -29,7 +29,7 @@ dvec3 g = fvec3(1.5f, 2.5f, 3.5f);      // 分量类型转换：float → double
 ```c++
 fvec3 v { 1.f, 2.f, 3.f };
 
-// 具名分量（vec2 / vec3 / vec4 提供，颜色命名 r/g/b/a 与 x/y/z/w 等价）
+// 具名分量（vec1 / vec2 / vec3 / vec4 提供，颜色命名 r/g/b/a 与 x/y/z/w 等价）
 float x = v.x;   // 1
 float g_ = v.g;   // 2（g 即 y）
 
