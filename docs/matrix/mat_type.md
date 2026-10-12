@@ -5,10 +5,10 @@
 | 类型 | 定义 | 解释 |
 |:-|:-|:-|
 | `mat<Row, Col, T>` | 模板类 | `Row` 为列数，`Col` 为每列分量数（即行数），均须大于 0 |
-| `fmat<Row, Col>` / `fmat2x2` ~ `fmat4x4` | `mat<Row, Col, float>` | 单精度浮点矩阵 |
-| `dmat<Row, Col>` / `dmat2x2` ~ `dmat4x4` | `mat<Row, Col, double>` | 双精度浮点矩阵 |
-| `smat<Row, Col>` / `smat2x2` ~ `smat4x4` | `mat<Row, Col, int>` | 有符号整型矩阵 |
-| `umat<Row, Col>` / `umat2x2` ~ `umat4x4` | `mat<Row, Col, unsigned int>` | 无符号整型矩阵 |
+| `fmat<Row, Col>` / `fmat1x1` ~ `fmat4x4` | `mat<Row, Col, float>` | 单精度浮点矩阵 |
+| `dmat<Row, Col>` / `dmat1x1` ~ `dmat4x4` | `mat<Row, Col, double>` | 双精度浮点矩阵 |
+| `smat<Row, Col>` / `smat1x1` ~ `smat4x4` | `mat<Row, Col, int>` | 有符号整型矩阵 |
+| `umat<Row, Col>` / `umat1x1` ~ `umat4x4` | `mat<Row, Col, unsigned int>` | 无符号整型矩阵 |
 
 ## 数据成员（存储布局）
 

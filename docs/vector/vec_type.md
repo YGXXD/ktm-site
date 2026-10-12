@@ -5,10 +5,10 @@
 | 类型 | 定义 | 解释 |
 |:-|:-|:-|
 | `vec<N, T>` | 模板类 | `N` 为维度（`N > 0`），`T` 为分量类型 |
-| `fvec<N>` / `fvec2` / `fvec3` / `fvec4` | `vec<N, float>` | 单精度浮点向量 |
-| `dvec<N>` / `dvec2` / `dvec3` / `dvec4` | `vec<N, double>` | 双精度浮点向量 |
-| `svec<N>` / `svec2` / `svec3` / `svec4` | `vec<N, int>` | 有符号整型向量 |
-| `uvec<N>` / `uvec2` / `uvec3` / `uvec4` | `vec<N, unsigned int>` | 无符号整型向量 |
+| `fvec<N>` / `fvec1` / `fvec2` / `fvec3` / `fvec4` | `vec<N, float>` | 单精度浮点向量 |
+| `dvec<N>` / `dvec1` / `dvec2` / `dvec3` / `dvec4` | `vec<N, double>` | 双精度浮点向量 |
+| `svec<N>` / `svec1` / `svec2` / `svec3` / `svec4` | `vec<N, int>` | 有符号整型向量 |
+| `uvec<N>` / `uvec1` / `uvec2` / `uvec3` / `uvec4` | `vec<N, unsigned int>` | 无符号整型向量 |
 
 ## 数据成员
 
@@ -16,8 +16,8 @@
 
 | 成员 | 类型 | 解释 |
 |:-|:-|:-|
-| x / y / z / w | `T` | 第 0~3 个分量（vec1 / vec2 / vec3 / vec4 提供） |
-| r / g / b / a | `T` | 同 x / y / z / w 的颜色命名别名 |
+| x / y / z / w | `T` | 第 0~3 个分量（vec1 仅 x，vec2 到 y，vec3 到 z，vec4 到 w） |
+| r / g / b / a | `T` | 同 x / y / z / w 的颜色命名别名，各维度可用范围一致 |
 | st | `T[N]` | 底层数组访问（任意维度可用） |
 
 ## 构造函数
